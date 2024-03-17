@@ -3,17 +3,17 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 
 jobs:
-  build:
-    name: BUILD
+  test:
+    name: TEST
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo build
+      - run: echo test
 
   deploy:
     name: DEPLOY
-    # needs:
-      # - build
+    needs:
+      - test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
