@@ -4,12 +4,14 @@ on: [push]
 
 jobs:
   build:
+    name: BUILD
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: echo build
 
   deploy:
+    name: DEPLOY
     needs:
       - build
     runs-on: ubuntu-latest
